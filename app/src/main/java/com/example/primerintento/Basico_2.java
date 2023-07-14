@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,10 +30,13 @@ public class Basico_2 extends AppCompatActivity {
     int preguntasrestantes = 10;
     int numerogenerado = 0;
 
+    String correctAnswer = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basico2);
+        System.out.println("Metido en basico");
 
         puntos = (TextView) findViewById(R.id.Puntos);
         imagen = (ImageView) findViewById(R.id.imagen);
@@ -44,87 +48,62 @@ public class Basico_2 extends AppCompatActivity {
         GenerarImagenaletoria();
         verificarerrores.setVisibility(View.GONE);
 
-        while (preguntasrestantes > 0) {
+        //while (preguntasrestantes > 0) {
 
             op1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    String respconfirmar = op1.getText().toString().toLowerCase();
-                    if (respconfirmar.equals(imagen_preg[numerogenerado])) {
-                        intpunto = intpunto + 1;
-                        puntos.setText("Aciertos: " + intpunto);
-                        preguntasrestantes = preguntasrestantes - 1;
-
-                        imagenArr.remove(numerogenerado);
-                        respuestaArr.remove(numerogenerado);
-                        GenerarImagenaletoria();
-
-                    } else {
-                        preguntasrestantes = preguntasrestantes - 1;
-
-                        imagenArr.remove(numerogenerado);
-                        respuestaArr.remove(numerogenerado);
-                        GenerarImagenaletoria();
-
-                    }
+                    isCorrect(op1, imagen_preg, numerogenerado);
+                    verifyAnswers();
                 }
             });
 
             op2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    String respconfirmar = op2.getText().toString().toLowerCase();
-                    if (respconfirmar.equals(imagen_preg[numerogenerado])) {
-                        intpunto = intpunto + 1;
-                        puntos.setText("Aciertos: " + intpunto);
-                        preguntasrestantes = preguntasrestantes - 1;
-
-                        imagenArr.remove(numerogenerado);
-                        GenerarImagenaletoria();
-
-                    } else {
-                        preguntasrestantes = preguntasrestantes - 1;
-
-                        imagenArr.remove(numerogenerado);
-                        GenerarImagenaletoria();
-
-                    }
+                    isCorrect(op2, imagen_preg, numerogenerado);
+                    verifyAnswers();
                 }
             });
 
             op3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    String respconfirmar = op3.getText().toString().toLowerCase();
-                    if (respconfirmar.equals(imagen_preg[numerogenerado])) {
-                        intpunto = intpunto + 1;
-                        puntos.setText("Aciertos: " + intpunto);
-                        preguntasrestantes = preguntasrestantes - 1;
-
-                        imagenArr.remove(numerogenerado);
-                        GenerarImagenaletoria();
-
-                    } else {
-                        preguntasrestantes = preguntasrestantes - 1;
-
-                        imagenArr.remove(numerogenerado);
-                        GenerarImagenaletoria();
-
-                    }
+                    isCorrect(op3, imagen_preg, numerogenerado);
+                    verifyAnswers();
                 }
             });
 
 
-        }
+        //}
 
-        if(preguntasrestantes == 0){
+    }
+
+    private void verifyAnswers(){
+        if(preguntasrestantes == 0) {
             verificarerrores.setVisibility(View.VISIBLE);
+            op1.setEnabled(false);
+            op2.setEnabled(false);
+            op3.setEnabled(false);
         }
+    }
 
+    private void isCorrect(Button button, String[] array1, int generatedNumber){
+        String respconfirmar = button.getText().toString().toLowerCase();
+        if (respconfirmar.equals(correctAnswer)) {
+            intpunto = intpunto + 1;
+            puntos.setText("PUNTOS: " + intpunto);
+            preguntasrestantes = preguntasrestantes - 1;
 
+            imagenArr.remove(generatedNumber);
+            GenerarImagenaletoria();
+
+        } else {
+            intpunto = intpunto - 1;
+            imagenArr.remove(generatedNumber);
+            GenerarImagenaletoria();
+
+        }
     }
 
     private void establecer_imagen(int numero) {
@@ -137,9 +116,10 @@ public class Basico_2 extends AppCompatActivity {
     public void GenerarImagenaletoria(){
         Random rand = new Random();
         int randInt=rand.nextInt(imagenArr.size());
+
         establecer_imagen(randInt);
         establecer_respuestas(randInt);
-        numerogenerado=randInt;
+        numerogenerado = randInt;
     }
 
     public void establecer_respuestas(int numero){
@@ -154,36 +134,36 @@ public class Basico_2 extends AppCompatActivity {
             randInt1 = numero +4;
             randInt2 = numero +5;
         }
+        int arrayOptions[] = {numero, randInt1,randInt2};
 
-        int[] auxiliar = {numero, randInt1, randInt2};
-        ArrayList<Integer> auxiliarArr = new ArrayList(Arrays.asList(auxiliar));
+        Random random = new Random();
+        int correctResponse = random.nextInt(arrayOptions.length);
 
-        Random randaux = new Random();
-        int randaux2 = randaux.nextInt(auxiliarArr.size());
-        int id1 = getResources().getIdentifier(respuesta_preg[randaux2],"string",getPackageName());
-        op1.setText(id1);
-        //auxiliarArr.remove(randaux2);
+        this.setRespuestaEnPregunta(respuesta_preg, numero, op1, true);
+        this.setRespuestaEnPregunta(respuesta_preg, randInt1, op2);
+        this.setRespuestaEnPregunta(respuesta_preg, randInt2, op3);
+    }
 
-        if(randaux2 == auxiliar[0]) {
-            int id2 = getResources().getIdentifier(respuesta_preg[auxiliar[1]], "string", getPackageName());
-            op2.setText(id2);
-
-            int id3 = getResources().getIdentifier(respuesta_preg[auxiliar[2]], "string", getPackageName());
-            op3.setText(id3);
-        } else if (randaux2 == auxiliar[1]) {
-            int id2 = getResources().getIdentifier(respuesta_preg[auxiliar[0]], "string", getPackageName());
-            op2.setText(id2);
-
-            int id3 = getResources().getIdentifier(respuesta_preg[auxiliar[2]], "string", getPackageName());
-            op3.setText(id3);
-        } else {
-            int id2 = getResources().getIdentifier(respuesta_preg[auxiliar[0]], "string", getPackageName());
-            op2.setText(id2);
-
-            int id3 = getResources().getIdentifier(respuesta_preg[auxiliar[1]], "string", getPackageName());
-            op3.setText(id3);
+    private boolean IsInArray(String[] arrayString, int value){
+        if(arrayString[value] != null){
+            return true;
         }
+        return false;
+    }
 
+    private void setRespuestaEnPregunta(String[] arrayString, int value, Button button){
+        if(this.IsInArray(arrayString, value)){
+            String text = arrayString[value];
+            button.setText(text);
+        }
+    }
+
+    private void setRespuestaEnPregunta(String[] arrayString, int value, Button button, boolean isCorrect){
+        if(this.IsInArray(arrayString, value) && isCorrect){
+            String text = arrayString[value];
+            button.setText(text);
+            correctAnswer = text;
+        }
     }
 
     public void IrAMenu (View view){
