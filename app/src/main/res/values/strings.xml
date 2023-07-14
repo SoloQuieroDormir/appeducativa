@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">primer intento</string>
+
+    //menu principal
+    <string name="text_niveles">Niveles</string>
+    <string name="btn_text_buttonbasico">Básico</string>
+    <string name="btn_text_buttonmedio">Medio</string>
+    <string name="btn_text_buttonavanzado">Avanzado</string>
+    <string name="btn_doc">Información de la aplicación</string>
+
+    //informacion de la aplicacion
+    <string name="text_informe1">Contactos:</string>
+    <string name="text_informe2">* 55-40-33-54-86 (Movil y WhatsApp)</string>
+    <string name="text_informe3">* 55-59-95-48-63 (Movil y WhatsApp)</string>
+    <string name="text_informe4">Correos:</string>
+    <string name="text_informe5">* rodryest34@hotmail.com</string>
+    <string name="text_informe6">* lexmarsam555_@hotmail.com</string>
+    <string name="text_informe7">Usurio de Github: Rodrigosf10</string>
+    <string name="text_informe8">Páginas de Referencia:</string>
+    <string name="text_informe9">* https://www.kumon.com.co/blog/fracciones-y-ejercicios-para-ninos-de-primaria</string>
+    <string name="text_informe10">* https://www.matematicasinclusivas.com/cuadernillos-de-fracciones/pdf-representacion-de-fracciones/ </string>
+
+    //teoria de nivel basico
+    <string name="text_basico1_1">Una fracción es una parte de algo, pero como condición, debe ser una división en partes iguales. Por ejemplo: dividir un pastel en 8 partes iguales, cuando tomas una, estás tomando una fracción de ese pastel</string>
+    <string name="text_basico1_2">Ahora bien, los números fraccionarios son, en matemáticas, la forma de expresar una cantidad dividida, algo similar a lo que te explicamos con el pastel, es decir: las fracciones se componen de dos números: el numerador y el denominador.</string>
+    <string name="text_basico1_3">El numerador de un fraccionario corresponde al número que indica cuántas partes tomamos, mientras que el denominador indica en cuántas partes estaba dividida la unidad. Si volvemos al ejemplo de la torta, el numerador es la cantidad de trozos que se han comido, y el denominador es la cantidad inicial de porciones que había inicialmente.</string>
+
+    //teoria de nivel medio
+    <string name="text_medio5_1">Las fracciones son una forma de representar números que no son enteros y son esenciales para el aprendizaje de conceptos matemáticos más avanzados, como las operaciones con números decimales, la proporcionalidad, el álgebra y la geometría</string>
+    <string name="text_medio5_2">A continuación se muestran las partes de una fracción.</string>
+    <string name="text_medio5_3">Las fracciones son útiles en la vida cotidiana en situaciones que implican la medición, la proporción y el cálculo de porcentajes. Por ejemplo, al cocinar, se utilizan fracciones para medir ingredientes y ajustar las proporciones de una receta. También son importantes en la construcción y el diseño, donde se usan para medir y planificar proporciones y dimensiones. Y además, en el mundo financiero, las fracciones se utilizan para calcular intereses y porcentajes de préstamos y ahorros.</string>
+
+    //teoria de nivel avanzado
+    <string name="text_avanzado5_1">Un número fraccionario o fracción expresa una cantidad determinada de porciones que se toman de un todo dividido en partes iguales.</string>
+    <string name="text_avanzado5_2">Se representa con una barra divisoria (oblicua u horizontal), también denominada "línea de la fracción" que separa la cantidad superior (numerador) de la cantidad inferior (denominador).</string>
+
+    //Preguntas
+    <string name="num1_2">1/2</string>
+    <string name="num1_3">1/3</string>
+    <string name="num1_4">1/4</string>
+    <string name="txt_puntos">Puntos: 0</string>
+    <string name="finalizar">Finalizar</string>
+
+
+</resources>

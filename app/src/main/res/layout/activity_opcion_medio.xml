@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OpcionMedio">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#7A94D8"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Space
+                android:id="@+id/space7"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Space
+                android:id="@+id/space3"
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.499" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#9CC5F7"
+                android:onClick="IrAMenu"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                app:layout_constraintEnd_toStartOf="@+id/space3"
+                app:layout_constraintTop_toBottomOf="@+id/space7"
+                app:srcCompat="?attr/homeAsUpIndicator" />
+
+            <TextView
+                android:id="@+id/textViewTitulo3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/aclonica"
+                android:scaleX="1"
+                android:text="@string/btn_text_buttonmedio"
+                android:textAlignment="viewStart"
+                android:textColor="#FEFEFE"
+                android:textSize="60sp"
+                app:layout_constraintEnd_toStartOf="@+id/space3"
+                app:layout_constraintStart_toEndOf="@+id/space9"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+            <Space
+                android:id="@+id/space11"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toStartOf="@+id/space3"
+                app:layout_constraintStart_toEndOf="@+id/space9"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitulo3" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toStartOf="@+id/space3"
+                app:layout_constraintStart_toEndOf="@+id/space9"
+                app:layout_constraintTop_toBottomOf="@+id/space11">
+
+                <ImageButton
+                    android:id="@+id/btn_m1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00FFFFFF"
+                    app:srcCompat="@drawable/btn_medio_1" />
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/btn_m2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00FFFFFF"
+                    app:srcCompat="@drawable/btn_medio_2" />
+
+            </LinearLayout>
+
+            <Space
+                android:id="@+id/space10"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toStartOf="@+id/space3"
+                app:layout_constraintStart_toEndOf="@+id/space9"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toStartOf="@+id/space3"
+                app:layout_constraintStart_toEndOf="@+id/space9"
+                app:layout_constraintTop_toBottomOf="@+id/space10">
+
+                <ImageButton
+                    android:id="@+id/btn_m3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00FFFFFF"
+                    app:srcCompat="@drawable/btn_medio_3" />
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/btn_m4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00FFFFFF"
+                    app:srcCompat="@drawable/btn_medio_4" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btn_m5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00FFFFFF"
+                android:onClick="IrAMedio5"
+                android:scaleX="2"
+                android:scaleY="2"
+                app:layout_constraintBottom_toTopOf="@+id/space8"
+                app:layout_constraintEnd_toStartOf="@+id/space3"
+                app:layout_constraintStart_toEndOf="@+id/space9"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+                app:srcCompat="@drawable/btn_medio_5" />
+
+            <Space
+                android:id="@+id/space9"
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Space
+                android:id="@+id/space8"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
