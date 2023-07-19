@@ -60,6 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="#00FFFFFF"
+                    android:onClick="IrAAvanzado1"
                     app:srcCompat="@drawable/btn_medio_1" />
 
                 <Space
@@ -73,6 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="#00FFFFFF"
+                    android:onClick="IrAAvanzado2"
                     app:srcCompat="@drawable/btn_medio_2" />
 
             </LinearLayout>
@@ -94,6 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="#00FFFFFF"
+                    android:onClick="IrAAvanzado3"
                     app:srcCompat="@drawable/btn_medio_3" />
 
                 <Space
@@ -107,6 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="#00FFFFFF"
+                    android:onClick="IrAAvanzado4"
                     app:srcCompat="@drawable/btn_medio_4" />
             </LinearLayout>
 

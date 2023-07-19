@@ -2,13 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ConstrainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Basico_2">
+    tools:context=".Avanzado_4">
 
     <LinearLayout
-        android:id="@+id/linearLayout6"
+        android:id="@+id/linearLayout14"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#7A94D8"
@@ -21,10 +20,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp">
+            android:layout_height="316dp">
 
             <TextView
-                android:id="@+id/Puntos"
+                android:id="@+id/puntos_a4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -37,7 +36,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
-                android:id="@+id/btn_retroceso_b2_1"
+                android:id="@+id/btn_retroceso_a4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -49,26 +48,35 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="?attr/homeAsUpIndicator" />
+
+            <TextView
+                android:id="@+id/text_pregunta_a4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/aclonica"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="48sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_retroceso_a4" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageView
-            android:id="@+id/imagen"
-            android:layout_width="352dp"
-            android:layout_height="204dp"
-            app:srcCompat="@drawable/img1" />
-
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp" />
 
         <Button
-            android:id="@+id/btn_b2_1"
+            android:id="@+id/btn_a4_1"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#0CC0DF"
             android:fontFamily="@font/aclonica"
-            android:text="@string/num1_2"
-            android:textAlignment="center"
+            android:text="Button"
             android:textSize="20sp" />
 
         <Space
@@ -76,12 +84,12 @@
             android:layout_height="20dp" />
 
         <Button
-            android:id="@+id/btn_b2_2"
+            android:id="@+id/btn_a4_2"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#0CC0DF"
             android:fontFamily="@font/aclonica"
-            android:text="@string/num1_3"
+            android:text="Button"
             android:textSize="20sp" />
 
         <Space
@@ -89,12 +97,12 @@
             android:layout_height="20dp" />
 
         <Button
-            android:id="@+id/btn_b2_3"
+            android:id="@+id/btn_a4_3"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#0CC0DF"
             android:fontFamily="@font/aclonica"
-            android:text="@string/num1_4"
+            android:text="Button"
             android:textSize="20sp" />
 
         <Space
@@ -102,17 +110,17 @@
             android:layout_height="40dp" />
 
         <Button
-            android:id="@+id/VerificarErrores"
+            android:id="@+id/btn_finalizar_a4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#0CC0DF"
+            android:fontFamily="@font/aclonica"
             android:onClick="IrAErrores"
             android:text="@string/finalizar" />
-
     </LinearLayout>
 
     <TextView
-        android:id="@+id/puntaje_final"
+        android:id="@+id/text_puntajefinal_a4"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
@@ -125,14 +133,14 @@
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/Felicitaciones"
-        android:layout_width="0dp"
+        android:id="@+id/text_felicitaciones_a4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -140,9 +148,8 @@
         android:text="TextView"
         android:textAlignment="center"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/puntaje_final"
-        app:layout_constraintEnd_toEndOf="@+id/puntaje_final"
-        app:layout_constraintStart_toStartOf="@+id/puntaje_final"
-        app:layout_constraintTop_toTopOf="@+id/puntaje_final" />
-
+        app:layout_constraintBottom_toBottomOf="@+id/text_puntajefinal_a4"
+        app:layout_constraintEnd_toEndOf="@+id/text_puntajefinal_a4"
+        app:layout_constraintStart_toStartOf="@+id/text_puntajefinal_a4"
+        app:layout_constraintTop_toTopOf="@+id/text_puntajefinal_a4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

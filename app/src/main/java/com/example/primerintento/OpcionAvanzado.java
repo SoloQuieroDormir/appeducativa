@@ -18,6 +18,22 @@ public class OpcionAvanzado extends AppCompatActivity {
         onBackPressed();
     }
 
+    public void IrAAvanzado1 (View view){
+        Intent i = new Intent(this, Avanzado_1.class);
+        startActivity(i);
+    }
+    public void IrAAvanzado2 (View view){
+        Intent i = new Intent(this, Avanzado_2.class);
+        startActivity(i);
+    }
+    public void IrAAvanzado3 (View view){
+        Intent i = new Intent(this, Avanzado_3.class);
+        startActivity(i);
+    }
+    public void IrAAvanzado4 (View view){
+        Intent i = new Intent(this, Avanzado_4.class);
+        startActivity(i);
+    }
     public void IrAAvanzado5 (View view){
         Intent i = new Intent(this, Avanzado_5.class);
         startActivity(i);

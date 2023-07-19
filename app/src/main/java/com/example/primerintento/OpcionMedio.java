@@ -19,6 +19,26 @@ public class OpcionMedio extends AppCompatActivity {
         onBackPressed();
     }
 
+    public void IrAMedio1 (View view) {
+        Intent i = new Intent(this, Medio_1.class);
+        startActivity(i);
+    }
+
+    public void IrAMedio2 (View view) {
+        Intent i = new Intent(this, Medio_2.class);
+        startActivity(i);
+    }
+
+    public void IrAMedio3 (View view) {
+        Intent i = new Intent(this, Medio_3.class);
+        startActivity(i);
+    }
+
+    public void IrAMedio4 (View view) {
+        Intent i = new Intent(this, Medio_4.class);
+        startActivity(i);
+    }
+
     public void IrAMedio5(View view){
         Intent i = new Intent(this, Medio_5.class);
         startActivity(i);

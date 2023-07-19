@@ -7,6 +7,7 @@
     <string name="btn_text_buttonmedio">Medio</string>
     <string name="btn_text_buttonavanzado">Avanzado</string>
     <string name="btn_doc">Información de la aplicación</string>
+    <string name="text_carga">Bienvenido</string>
 
     //informacion de la aplicacion
     <string name="text_informe1">Contactos:</string>
@@ -40,6 +41,7 @@
     <string name="num1_4">1/4</string>
     <string name="txt_puntos">Puntos: 0</string>
     <string name="finalizar">Finalizar</string>
+    <string name="txt_preg_m4">Halla el número natural de las siguientes fracciones usando la división:</string>
 
 
 </resources>

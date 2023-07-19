@@ -17,7 +17,7 @@ import java.util.Locale;
 import java.util.Random;
 
 public class Basico_2 extends AppCompatActivity {
-    TextView puntos;
+    TextView puntos, puntajefinal, felicitaciones;
     ImageView imagen;
     Button op1, op2, op3, verificarerrores;
     String[] imagen_preg = {"img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8", "img9", "img10", "img11", "img12", "img13", "img14", "img15", "img16", "img17", "img18", "img19", "img20", "img21", "img22", "img23", "img24", "img25", "img26", "img27", "img28", "img29", "img30"};
@@ -39,6 +39,8 @@ public class Basico_2 extends AppCompatActivity {
         System.out.println("Metido en basico");
 
         puntos = (TextView) findViewById(R.id.Puntos);
+        puntajefinal = (TextView) findViewById(R.id.puntaje_final);
+        felicitaciones = (TextView) findViewById(R.id.Felicitaciones);
         imagen = (ImageView) findViewById(R.id.imagen);
         op1 = (Button) findViewById(R.id.btn_b2_1);
         op2 = (Button) findViewById(R.id.btn_b2_2);
@@ -47,8 +49,8 @@ public class Basico_2 extends AppCompatActivity {
 
         GenerarImagenaletoria();
         verificarerrores.setVisibility(View.GONE);
-
-        //while (preguntasrestantes > 0) {
+        puntajefinal.setVisibility(View.GONE);
+        felicitaciones.setVisibility(View.GONE);
 
             op1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -74,9 +76,6 @@ public class Basico_2 extends AppCompatActivity {
                 }
             });
 
-
-        //}
-
     }
 
     private void verifyAnswers(){
@@ -92,14 +91,14 @@ public class Basico_2 extends AppCompatActivity {
         String respconfirmar = button.getText().toString().toLowerCase();
         if (respconfirmar.equals(correctAnswer)) {
             intpunto = intpunto + 1;
-            puntos.setText("PUNTOS: " + intpunto);
+            puntos.setText("Puntos: " + intpunto);
             preguntasrestantes = preguntasrestantes - 1;
 
             imagenArr.remove(generatedNumber);
             GenerarImagenaletoria();
 
         } else {
-            intpunto = intpunto - 1;
+            preguntasrestantes = preguntasrestantes - 1;
             imagenArr.remove(generatedNumber);
             GenerarImagenaletoria();
 
@@ -139,9 +138,21 @@ public class Basico_2 extends AppCompatActivity {
         Random random = new Random();
         int correctResponse = random.nextInt(arrayOptions.length);
 
-        this.setRespuestaEnPregunta(respuesta_preg, numero, op1, true);
-        this.setRespuestaEnPregunta(respuesta_preg, randInt1, op2);
-        this.setRespuestaEnPregunta(respuesta_preg, randInt2, op3);
+        if (correctResponse == 0){
+            this.setRespuestaEnPregunta(respuesta_preg, numero, op1, true);
+            this.setRespuestaEnPregunta(respuesta_preg, randInt1, op2);
+            this.setRespuestaEnPregunta(respuesta_preg, randInt2, op3);
+        } else if (correctResponse == 1) {
+            this.setRespuestaEnPregunta(respuesta_preg, numero, op2, true);
+            this.setRespuestaEnPregunta(respuesta_preg, randInt1, op3);
+            this.setRespuestaEnPregunta(respuesta_preg, randInt2, op1);
+        } else {
+            this.setRespuestaEnPregunta(respuesta_preg, numero, op3, true);
+            this.setRespuestaEnPregunta(respuesta_preg, randInt1, op1);
+            this.setRespuestaEnPregunta(respuesta_preg, randInt2, op2);
+        }
+
+
     }
 
     private boolean IsInArray(String[] arrayString, int value){
@@ -170,8 +181,20 @@ public class Basico_2 extends AppCompatActivity {
         onBackPressed();
     }
     public void IrAErrores (View view){
-        Intent j = new Intent(this, Errores.class);
-        startActivity(j);
+        puntajefinal.setVisibility(View.VISIBLE);
+        felicitaciones.setVisibility(View.VISIBLE);
+        puntajefinal.setText("Puntaje Final: " + intpunto);
+
+        if(intpunto == 10){
+            felicitaciones.setText("Excelente trabajo");
+        } else if (intpunto == 9 || intpunto == 8) {
+            felicitaciones.setText("Buen trabajo, pero puedes mejorar");
+        } else if (intpunto == 7 || intpunto == 6) {
+            felicitaciones.setText("Nada mal, pero no te confies");
+        } else {
+            felicitaciones.setText("Esfuérzate más, necesitas repasar los temas");
+        }
+
     }
 
 }

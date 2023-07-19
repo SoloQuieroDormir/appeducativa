@@ -86,6 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#00FFFFFF"
+                    android:onClick="IrAMedio1"
                     app:srcCompat="@drawable/btn_medio_1" />
 
                 <Space
@@ -98,6 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#00FFFFFF"
+                    android:onClick="IrAMedio2"
                     app:srcCompat="@drawable/btn_medio_2" />
 
             </LinearLayout>
@@ -125,6 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#00FFFFFF"
+                    android:onClick="IrAMedio3"
                     app:srcCompat="@drawable/btn_medio_3" />
 
                 <Space
@@ -137,6 +140,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#00FFFFFF"
+                    android:onClick="IrAMedio4"
                     app:srcCompat="@drawable/btn_medio_4" />
 
             </LinearLayout>
