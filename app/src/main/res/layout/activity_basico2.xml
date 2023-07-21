@@ -65,7 +65,7 @@
             android:id="@+id/btn_b2_1"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#0CC0DF"
+            android:backgroundTint="@color/botones"
             android:fontFamily="@font/aclonica"
             android:text="@string/num1_2"
             android:textAlignment="center"
@@ -144,5 +144,16 @@
         app:layout_constraintEnd_toEndOf="@+id/puntaje_final"
         app:layout_constraintStart_toStartOf="@+id/puntaje_final"
         app:layout_constraintTop_toTopOf="@+id/puntaje_final" />
+
+    <ImageView
+        android:id="@+id/img_respuesta_b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9"
+        app:srcCompat="@drawable/correcto" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

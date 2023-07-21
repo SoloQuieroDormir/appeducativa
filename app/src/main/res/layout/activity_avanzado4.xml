@@ -20,7 +20,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="316dp">
+            android:layout_height="280dp">
 
             <TextView
                 android:id="@+id/puntos_a4"
@@ -152,4 +152,15 @@
         app:layout_constraintEnd_toEndOf="@+id/text_puntajefinal_a4"
         app:layout_constraintStart_toStartOf="@+id/text_puntajefinal_a4"
         app:layout_constraintTop_toTopOf="@+id/text_puntajefinal_a4" />
+
+    <ImageView
+        android:id="@+id/img_respuesta_a4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9"
+        app:srcCompat="@drawable/correcto" />
 </androidx.constraintlayout.widget.ConstraintLayout>

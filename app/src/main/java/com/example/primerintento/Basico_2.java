@@ -1,9 +1,14 @@
 package com.example.primerintento;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,14 +23,16 @@ import java.util.Random;
 
 public class Basico_2 extends AppCompatActivity {
     TextView puntos, puntajefinal, felicitaciones;
-    ImageView imagen;
+    ImageView imagen, respuesta;
     Button op1, op2, op3, verificarerrores;
     String[] imagen_preg = {"img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8", "img9", "img10", "img11", "img12", "img13", "img14", "img15", "img16", "img17", "img18", "img19", "img20", "img21", "img22", "img23", "img24", "img25", "img26", "img27", "img28", "img29", "img30"};
     String[] respuesta_preg = {"1/2", "1/3", "1/4", "1/5", "1/6", "1/7", "1/8", "1/9", "1/10", "3/2", "2/3", "4/10", "6/5", "5/7", "3/4", "6/9", "9/10", "4/4", "7/5", "6/4", "2/8", "3/5", "4/10", "8/5", "4/2", "2/6", "2/7", "2/8", "6/9", "3/8"};
+    String[] siono = {"correcto", "equivocado"};
     int intpunto = 0;
 
+    public static int MILISEGUNDOS_ESPERA = 1000;
+
     ArrayList<String> imagenArr = new ArrayList<String>(Arrays.asList(imagen_preg));
-    ArrayList<String> respuestaArr = new ArrayList<String>(Arrays.asList(respuesta_preg));
 
     int preguntasrestantes = 10;
     int numerogenerado = 0;
@@ -42,6 +49,7 @@ public class Basico_2 extends AppCompatActivity {
         puntajefinal = (TextView) findViewById(R.id.puntaje_final);
         felicitaciones = (TextView) findViewById(R.id.Felicitaciones);
         imagen = (ImageView) findViewById(R.id.imagen);
+        respuesta = (ImageView) findViewById(R.id.img_respuesta_b2);
         op1 = (Button) findViewById(R.id.btn_b2_1);
         op2 = (Button) findViewById(R.id.btn_b2_2);
         op3 = (Button) findViewById(R.id.btn_b2_3);
@@ -51,11 +59,12 @@ public class Basico_2 extends AppCompatActivity {
         verificarerrores.setVisibility(View.GONE);
         puntajefinal.setVisibility(View.GONE);
         felicitaciones.setVisibility(View.GONE);
+        respuesta.setVisibility(View.GONE);
 
             op1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    isCorrect(op1, imagen_preg, numerogenerado);
+                    isCorrect(op1, op2, op3, imagen_preg, numerogenerado);
                     verifyAnswers();
                 }
             });
@@ -63,7 +72,7 @@ public class Basico_2 extends AppCompatActivity {
             op2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    isCorrect(op2, imagen_preg, numerogenerado);
+                    isCorrect(op2, op1, op3, imagen_preg, numerogenerado);
                     verifyAnswers();
                 }
             });
@@ -71,7 +80,7 @@ public class Basico_2 extends AppCompatActivity {
             op3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    isCorrect(op3, imagen_preg, numerogenerado);
+                    isCorrect(op3, op1, op2, imagen_preg, numerogenerado);
                     verifyAnswers();
                 }
             });
@@ -87,22 +96,62 @@ public class Basico_2 extends AppCompatActivity {
         }
     }
 
-    private void isCorrect(Button button, String[] array1, int generatedNumber){
+    private void isCorrect(Button button, Button alternativa1, Button alternativa2, String[] array1, int generatedNumber){
         String respconfirmar = button.getText().toString().toLowerCase();
         if (respconfirmar.equals(correctAnswer)) {
+            int id = getResources().getIdentifier(siono[0], "drawable", getPackageName());
+            respuesta.setImageResource(id);
+            respuesta.setVisibility(View.VISIBLE);
             intpunto = intpunto + 1;
             puntos.setText("Puntos: " + intpunto);
             preguntasrestantes = preguntasrestantes - 1;
+            button.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.green));
+
+            espera1(MILISEGUNDOS_ESPERA, button);
 
             imagenArr.remove(generatedNumber);
-            GenerarImagenaletoria();
+
 
         } else {
+            int id = getResources().getIdentifier(siono[1], "drawable", getPackageName());
+            respuesta.setImageResource(id);
+            respuesta.setVisibility(View.VISIBLE);
             preguntasrestantes = preguntasrestantes - 1;
+            button.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.red));
+            if(alternativa1.getText().toString().toLowerCase().equals(correctAnswer)){
+                alternativa1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.green));
+                espera2(MILISEGUNDOS_ESPERA, button, alternativa1);
+            } else {
+                alternativa2.setBackgroundColor(ContextCompat.getColor(getBaseContext(),R.color.green));
+                espera2(MILISEGUNDOS_ESPERA, button, alternativa2);
+            }
+
             imagenArr.remove(generatedNumber);
-            GenerarImagenaletoria();
 
         }
+    }
+
+    public void espera1(int milisegundos, Button button){
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable(){
+            public void run(){
+                GenerarImagenaletoria();
+                respuesta.setVisibility(View.GONE);
+                button.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.botones));
+            }
+        },milisegundos);
+    }
+
+    public void espera2(int milisegundos, Button button1, Button button2){
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable(){
+            public void run(){
+                GenerarImagenaletoria();
+                respuesta.setVisibility(View.GONE);
+                button1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.botones));
+                button2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.botones));
+            }
+        },milisegundos);
     }
 
     private void establecer_imagen(int numero) {
@@ -119,6 +168,7 @@ public class Basico_2 extends AppCompatActivity {
         establecer_imagen(randInt);
         establecer_respuestas(randInt);
         numerogenerado = randInt;
+        respuesta.setVisibility(View.GONE);
     }
 
     public void establecer_respuestas(int numero){
